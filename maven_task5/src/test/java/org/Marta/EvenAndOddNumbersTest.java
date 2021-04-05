@@ -3,16 +3,19 @@ package org.Marta;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class EvenAndOddNumbersTest {
 
     @Test
-    void evenOrOddTest() {
-        int value1 = -1;
-        int value2 = 4;
+    void shouldSay1isOdd() {
+        int value = 1;
 
-        Assertions.assertEquals("Odd",EvenAndOddNumbers.evenOrOdd(value1));
-        Assertions.assertEquals("Even",EvenAndOddNumbers.evenOrOdd(value2));
+        Assertions.assertEquals("Odd",EvenAndOddNumbers.evenOrOdd(value));
+    }
+
+    @Test
+    void shouldSay4isEven() {
+        int value = 4;
+
+        Assertions.assertEquals("Even",EvenAndOddNumbers.evenOrOdd(value));
     }
 }
