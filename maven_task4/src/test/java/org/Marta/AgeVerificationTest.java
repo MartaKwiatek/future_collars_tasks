@@ -5,17 +5,27 @@ import org.junit.jupiter.api.Test;
 class AgeVerificationTest {
 
     @Test
-    void isLegalAgeTest() {
-        int age1 = 1;
-        int age2 = 17;
-        int age3 = 18;
-        int age4 = 32;
-        int age5 = 100;
-
-        Assertions.assertFalse(AgeVerification.isLegalAge(age1));
-        Assertions.assertFalse(AgeVerification.isLegalAge(age2));
-        Assertions.assertTrue(AgeVerification.isLegalAge(age3));
-        Assertions.assertTrue(AgeVerification.isLegalAge(age4));
-        Assertions.assertTrue(AgeVerification.isLegalAge(age5));
+    void shouldSayThat1isNotLegalAge() {
+        int age = 1;
+        Assertions.assertFalse(AgeVerification.isLegalAge(age));
     }
+
+    @Test
+    void shouldSayThat17isNotLegalAge() {
+        int age = 17;
+        Assertions.assertFalse(AgeVerification.isLegalAge(age));
+    }
+
+    @Test
+    void shouldSayThat18isLegalAge() {
+        int age = 18;
+        Assertions.assertTrue(AgeVerification.isLegalAge(age));
+    }
+
+    @Test
+    void shouldSayThat32isLegalAge() {
+        int age = 32;
+        Assertions.assertTrue(AgeVerification.isLegalAge(age));
+    }
+
 }
