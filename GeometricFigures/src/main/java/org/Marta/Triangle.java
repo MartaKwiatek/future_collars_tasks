@@ -13,7 +13,7 @@ public class Triangle extends Shape{
 
     @Override
     public double getArea() {
-        double p = this.getPerimeter() / 2;
+        double p = getPerimeter() / 2;
         return Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));
     }
 

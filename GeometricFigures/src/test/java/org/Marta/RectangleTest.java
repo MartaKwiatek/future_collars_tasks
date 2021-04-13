@@ -21,14 +21,12 @@ class RectangleTest {
     @Test
     void getAreaTest() {
         double result = rectangle.getArea();
-
         Assertions.assertEquals(15.00, Precision.round(result, 2));
     }
 
     @Test
     void getPerimeterTest() {
         double result = rectangle.getPerimeter();
-
         Assertions.assertEquals(16.00, Precision.round(result, 2));
     }
 }

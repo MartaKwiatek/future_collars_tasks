@@ -17,14 +17,12 @@ class SquareTest {
     @Test
     void getAreaTest() {
         double result = square.getArea();
-
         Assertions.assertEquals(4.00, Precision.round(result, 2));
     }
 
     @Test
     void getPerimeterTest() {
         double result = square.getPerimeter();
-
         Assertions.assertEquals(8.00, Precision.round(result, 2));
     }
 }
