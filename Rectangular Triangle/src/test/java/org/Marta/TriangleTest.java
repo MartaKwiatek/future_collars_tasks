@@ -6,19 +6,21 @@ import org.junit.jupiter.api.Test;
 class TriangleTest {
 
     @Test
-    void shouldSayItIsNotRectangular() {
-        int[] sides = new int[] {12, 8, 10};
-
-        boolean isRectangular = Triangle.isRectangular(sides);
+    void shouldReturnItIsNotRectangular() {
+        int sideA = 12;
+        int sideB = 8;
+        int sideC = 10;
+        boolean isRectangular = Triangle.isRectangular(sideA, sideB, sideC);
 
         Assertions.assertFalse(isRectangular);
     }
 
     @Test
-    void shouldSayItIsRectangular() {
-        int[] sides = new int[] {5, 4, 3};
-
-        boolean isRectangular = Triangle.isRectangular(sides);
+    void shouldReturnItIsRectangular() {
+        int sideA = 5;
+        int sideB = 4;
+        int sideC = 3;
+        boolean isRectangular = Triangle.isRectangular(sideA, sideB, sideC);
 
         Assertions.assertTrue(isRectangular);
     }
