@@ -1,6 +1,6 @@
 package org.Marta;
 
-public class Rectangle implements Area, Perimeter {
+public class Rectangle implements Shape {
     private double width;
     private double height;
 

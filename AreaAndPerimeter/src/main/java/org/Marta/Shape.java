@@ -1,5 +1,6 @@
 package org.Marta;
 
-public interface Perimeter {
+public interface Shape {
+    double getArea();
     double getPerimeter();
 }
