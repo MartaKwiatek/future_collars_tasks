@@ -1,6 +1,6 @@
 package org.Marta;
 
-public class UppercaseText implements TextFormatter{
+public class UpperCaseTextFormatter implements TextFormatter{
     @Override
     public String formatText(String text) {
         return text.toUpperCase();

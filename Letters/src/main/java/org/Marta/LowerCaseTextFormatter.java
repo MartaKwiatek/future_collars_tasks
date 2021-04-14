@@ -1,8 +1,6 @@
 package org.Marta;
 
-import java.util.Locale;
-
-public class LowercaseText implements TextFormatter {
+public class LowerCaseTextFormatter implements TextFormatter {
     @Override
     public String formatText(String text) {
         return text.toLowerCase();
