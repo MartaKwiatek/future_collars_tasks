@@ -10,18 +10,23 @@ class RectangleTest {
 
     @BeforeEach
     public void setRectangle() {
+        // given
         rectangle = new Rectangle(3, 5);
     }
 
     @Test
     void getAreaTest() {
-        double result = rectangle.getArea();
-        Assertions.assertEquals(15.00, Precision.round(result, 2));
+        // when
+        double result = Precision.round(rectangle.getArea(), 2);
+        // then
+        Assertions.assertEquals(15.00, result);
     }
 
     @Test
     void getPerimeterTest() {
-        double result = rectangle.getPerimeter();
-        Assertions.assertEquals(16.00, Precision.round(result, 2));
+        // when
+        double result = Precision.round(rectangle.getPerimeter(), 2);
+        // then
+        Assertions.assertEquals(16.00, result);
     }
 }

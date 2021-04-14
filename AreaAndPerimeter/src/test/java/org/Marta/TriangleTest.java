@@ -12,19 +12,24 @@ class TriangleTest {
 
     @BeforeEach
     public void setTriangle() {
+        // given
         triangle = new Triangle(4, 5, 6);
     }
 
     @Test
     void getAreaTest() {
-        double result = triangle.getArea();
-        Assertions.assertEquals(9.92, Precision.round(result,2));
+        // when
+        double result = Precision.round(triangle.getArea(), 2);
+        // then
+        Assertions.assertEquals(9.92, result);
     }
 
     @Test
     void getPerimeterTest() {
-        double result = triangle.getPerimeter();
-        Assertions.assertEquals(15.00, Precision.round(result,2));
+        // when
+        double result = Precision.round(triangle.getPerimeter(), 2);
+        // then
+        Assertions.assertEquals(15.00, result);
     }
 
 }
