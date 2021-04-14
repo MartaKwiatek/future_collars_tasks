@@ -8,7 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class DayOfTheWeekTest {
 
     @Test
-    void getDayTest() {
-        Assertions.assertEquals("FRIDAY",DayOfTheWeek.getDay(Days.FRIDAY));
+    void shouldReturnFriday() {
+        Days day = Days.FRIDAY;
+
+        String result = DayOfTheWeek.getDay(day);
+
+        Assertions.assertEquals("FRIDAY", result);
     }
 }
