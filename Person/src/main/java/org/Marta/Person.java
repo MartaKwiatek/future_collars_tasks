@@ -30,7 +30,7 @@ public class Person {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return pesel == person.pesel && name.equals(person.name) && surname.equals(person.surname);
+        return pesel == person.pesel;
     }
 
     @Override
