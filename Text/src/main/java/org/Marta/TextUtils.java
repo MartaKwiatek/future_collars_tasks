@@ -1,7 +1,5 @@
 package org.Marta;
 
-import java.util.Locale;
-
 public class TextUtils {
     public static boolean isNotEmpty(String text) {
         return text.length() != 0;
@@ -16,15 +14,11 @@ public class TextUtils {
     }
 
     public static boolean isPalindrome(String text) {
-        if (isNotEmpty(text)) {
-            String preparedText = removePunctuationMarks(removeWhiteSpaces(text)).toLowerCase();
-            StringBuilder stringBuilder = new StringBuilder(preparedText);
-            stringBuilder.reverse();
-            String reversedText = stringBuilder.toString();
-            return preparedText.equals(reversedText);
-        }
-        else
-            return false;
+        String preparedText = removePunctuationMarks(removeWhiteSpaces(text)).toLowerCase();
+        StringBuilder stringBuilder = new StringBuilder(preparedText);
+        stringBuilder.reverse();
+        String reversedText = stringBuilder.toString();
+        return preparedText.equals(reversedText);
     }
 
     public static int textLength(String text) {
