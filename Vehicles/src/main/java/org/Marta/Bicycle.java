@@ -1,14 +1,14 @@
 package org.Marta;
 
-public class Bicycle extends Vehicle {
+public class Bicycle implements Vehicle {
 
     @Override
-    protected void startEngine() {
-        throw new UnsupportedOperationException("Bicycle does not have engine");
+    public void turnLeft() {
+        System.out.println("stick out your left arm and point left");
     }
 
     @Override
-    protected void stopEngine() {
-        throw new UnsupportedOperationException("Bicycle does not have engine");
+    public void turnRight() {
+        System.out.println("stick out your right arm and point right");
     }
 }
