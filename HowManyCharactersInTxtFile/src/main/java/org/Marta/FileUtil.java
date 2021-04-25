@@ -2,7 +2,7 @@ package org.Marta;
 
 import java.io.*;
 
-public class FileUtil {
+public class FileUtil implements Closeable {
     static BufferedReader reader = null;
 
     public FileUtil (String filePath) throws FileNotFoundException {
@@ -19,5 +19,10 @@ public class FileUtil {
             numOfCharacters += data.length();
         }
         return numOfCharacters;
+    }
+
+    @Override
+    public void close() throws IOException {
+        reader.close();
     }
 }

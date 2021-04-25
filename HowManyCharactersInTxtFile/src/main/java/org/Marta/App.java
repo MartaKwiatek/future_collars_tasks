@@ -7,7 +7,8 @@ public class App {
     private static final String filePath = "..\\CreateTxtFile\\data.txt";
 
     public static void main( String[] args ) throws IOException {
-        FileUtil fileUtil = new FileUtil(filePath);
-        System.out.println("This file contains " + fileUtil.countCharacters() + " characters");
+        try(FileUtil fileUtil = new FileUtil(filePath)) {
+            System.out.println("This file contains " + fileUtil.countCharacters() + " characters");
+        }
     }
 }
