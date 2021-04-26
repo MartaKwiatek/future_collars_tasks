@@ -4,14 +4,13 @@ import java.util.Scanner;
 
 public class App {
     public static void main( String[] args ) {
-        double number;
+        double number = 0;
         double squareRoot;
 
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Type a number: ");
-        number = scanner.nextDouble();
 
-        try {
+        try(Scanner scanner = new Scanner(System.in)) {
+            number = scanner.nextDouble();
             squareRoot = SquareRoot.calculateSqrt(number);
         } catch (IllegalArgumentException exception) {
             squareRoot = SquareRoot.calculateSqrt(number * -1);
