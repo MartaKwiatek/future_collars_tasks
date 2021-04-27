@@ -3,6 +3,7 @@ package org.Marta;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
+import org.junit.jupiter.params.provider.NullSource;
 
 import java.time.Month;
 
@@ -12,8 +13,8 @@ class SeasonCheckerTest {
     @EnumSource(value = Month.class, names = {"DECEMBER", "JANUARY", "FEBRUARY"})
     void shouldReturnWinter(Month month) {
         //given, when
-        Season expected = Season.WINTER;
-        Season actual = SeasonChecker.getSeason(month);
+        String expected = Season.WINTER.toString();
+        String actual = SeasonChecker.getSeason(month);
         //then
         Assertions.assertEquals(expected, actual);
     }
@@ -22,8 +23,8 @@ class SeasonCheckerTest {
     @EnumSource(value = Month.class, names = {"MARCH", "APRIL", "MAY"})
     void shouldReturnSpring(Month month) {
         //given, when
-        Season expected = Season.SPRING;
-        Season actual = SeasonChecker.getSeason(month);
+        String expected = Season.SPRING.toString();
+        String actual = SeasonChecker.getSeason(month);
         //then
         Assertions.assertEquals(expected, actual);
     }
@@ -32,8 +33,8 @@ class SeasonCheckerTest {
     @EnumSource(value = Month.class, names = {"JUNE", "JULY", "AUGUST"})
     void shouldReturnSummer(Month month) {
         //given, when
-        Season expected = Season.SUMMER;
-        Season actual = SeasonChecker.getSeason(month);
+        String expected = Season.SUMMER.toString();
+        String actual = SeasonChecker.getSeason(month);
         //then
         Assertions.assertEquals(expected, actual);
     }
@@ -42,8 +43,18 @@ class SeasonCheckerTest {
     @EnumSource(value = Month.class, names = {"SEPTEMBER", "OCTOBER", "NOVEMBER"})
     void shouldReturnAutumn(Month month) {
         //given, when
-        Season expected = Season.AUTUMN;
-        Season actual = SeasonChecker.getSeason(month);
+        String expected = Season.AUTUMN.toString();
+        String actual = SeasonChecker.getSeason(month);
+        //then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @NullSource
+    void shouldReturnEmptyStringForNull(Month month) {
+        //given, when
+        String expected = "";
+        String actual = SeasonChecker.getSeason(month);
         //then
         Assertions.assertEquals(expected, actual);
     }
