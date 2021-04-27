@@ -7,6 +7,11 @@ public class MathUtils {
 
     public static int calcSumOfDigits(int number) {
         int sum = 0;
+
+        if (number < 0) {
+            number = -number;
+        }
+
         while (number > 0) {
             sum += number % 10;
             number /= 10;
