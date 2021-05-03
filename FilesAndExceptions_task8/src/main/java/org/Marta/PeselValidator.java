@@ -1,18 +1,12 @@
 package org.Marta;
 
 public class PeselValidator {
-    public static void validatePesel(Object peselNumber) throws IllegalLengthException, WrongTypeOfDataException {
-        if(peselNumber instanceof String)
-        {
-            if (((String)peselNumber).length() > 11) {
-                throw new IllegalLengthException("To many digits! Pesel contains only 11.");
-            }
-            else if(((String)peselNumber).length() < 11) {
-                throw new IllegalLengthException("Error. Pesel should contain 11 digits.");
-            }
+    public static void validatePesel(String peselNumber) {
+        if (!(peselNumber.matches("[0-9]+"))) {
+            throw new WrongTypeOfDataException("Only digits, please");
         }
-        else {
-            throw new WrongTypeOfDataException("Wrong type");
+        if (peselNumber.length() != 11) {
+            throw new IllegalLengthException("Pesel should contain 11 digits");
         }
     }
 }
