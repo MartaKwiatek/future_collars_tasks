@@ -32,7 +32,7 @@ class CurrencyCalculatorTest {
     }
 
     @Test
-    void shouldConvertPlnToEuroInSellingRate() {
+    void shouldConvertPlnInSellingRate() {
         //given
         BigDecimal amountOfPLN = new BigDecimal("20.0");
         ExchangeRate exchangeRateMock = Mockito.mock(ExchangeRate.class);
