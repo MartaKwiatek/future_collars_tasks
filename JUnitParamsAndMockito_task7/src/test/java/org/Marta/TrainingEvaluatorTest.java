@@ -139,7 +139,7 @@ class TrainingEvaluatorTest {
 
         try {
             //when
-            double actual = trainingEvaluator.evaluateTraining();
+            int actual = trainingEvaluator.rateForLength();
             fail("This method should throw IllegalLengthException");
         } catch (IllegalLength e) {
             //then
@@ -170,7 +170,7 @@ class TrainingEvaluatorTest {
 
         try {
             //when
-            double actual = trainingEvaluator.evaluateTraining();
+            int actual = trainingEvaluator.rateForKCal();
             fail("This method should throw IllegalKcalException");
         } catch (IllegalKCal e) {
             //then
@@ -199,7 +199,7 @@ class TrainingEvaluatorTest {
 
         try {
             //when
-            double actual = trainingEvaluator.evaluateTraining();
+            int actual = trainingEvaluator.rateForPulse();
             fail("This method should throw IllegalPulseException");
         } catch (IllegalPulse e) {
             //then
@@ -220,13 +220,14 @@ class TrainingEvaluatorTest {
     }
 
     @Test
-    void testForPrimaSortTraining() {
+    void testForPerfectTrainingEfficiency() {
         //given
         Training training = new Training(40, 349, 155);
         TrainingEvaluator trainingEvaluator = new TrainingEvaluator(training);
         //when
-        double actual = trainingEvaluator.evaluateTraining();
+        TrainingEfficiency actual = trainingEvaluator.evaluateTraining();
         //then
-        Assertions.assertEquals(15.0, actual);
+        Assertions.assertEquals(TrainingEfficiency.PERFECT, actual);
     }
+
 }

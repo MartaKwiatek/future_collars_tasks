@@ -2,9 +2,9 @@ package org.Marta;
 
 public class TrainingEvaluator {
     private Training training;
-    private static final int LENGTH_WEIGHT = 1;
-    private static final int KCAL_WEIGHT = 2;
-    private static final int PULSE_WEIGHT = 3;
+    private static final double LENGTH_WEIGHT = 1.0;
+    private static final double KCAL_WEIGHT = 2.0;
+    private static final double PULSE_WEIGHT = 3.0;
 
     public TrainingEvaluator(Training training) {
         this.training = training;
@@ -52,7 +52,9 @@ public class TrainingEvaluator {
         }
     }
 
-    public double evaluateTraining() {
-        return rateForLength() * LENGTH_WEIGHT + rateForKCal() * KCAL_WEIGHT + rateForPulse() * PULSE_WEIGHT;
+    public TrainingEfficiency evaluateTraining() {
+        double weightedAvg = rateForLength() * LENGTH_WEIGHT + rateForKCal() * KCAL_WEIGHT + rateForPulse() * PULSE_WEIGHT;
+        return weightedAvg < 1.2 ? TrainingEfficiency.LOW : (weightedAvg < 2) ? TrainingEfficiency.MEDIUM :
+                (weightedAvg < 3) ? TrainingEfficiency.HIGH : TrainingEfficiency.PERFECT;
     }
 }
