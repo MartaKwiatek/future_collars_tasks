@@ -1,10 +1,11 @@
 package org.Marta;
 
 public class MyList implements OwnList {
-    Integer[] data;
-    int maxCapacity;
-    int currentSize;
-    static final int DEFAULT_CAPACITY = 100;
+    private Integer[] data;
+    private int maxCapacity;
+    private int currentSize;
+    private static final int DEFAULT_CAPACITY = 10;
+    private static final int EXTENSION_STEP = 10;
 
     public MyList() {
         this(DEFAULT_CAPACITY);
@@ -26,11 +27,18 @@ public class MyList implements OwnList {
         return currentSize == 0;
     }
 
+    private void extendArrayIfNeeded() {
+        if (currentSize == maxCapacity) {
+            Integer[] dataCopy = new Integer[currentSize + EXTENSION_STEP];
+            System.arraycopy(data, 0, dataCopy, 0, currentSize);
+            maxCapacity += EXTENSION_STEP;
+            data = dataCopy;
+        }
+    }
+
     @Override
     public void add(Integer element) {
-        if (currentSize == maxCapacity) {
-            throw new CapacityExceeded("list capacity exceeded.");
-        }
+        extendArrayIfNeeded();
         data[currentSize] = element;
         currentSize++;
     }
@@ -48,11 +56,11 @@ public class MyList implements OwnList {
         if (index < 0 || index >= currentSize) {
             throw new RuntimeException("Index out of bounds");
         }
-       currentSize++;
-        for(int i = currentSize - 1; i >= index ; i--) {
-            data[i] = data[i - 1];
-        }
+        extendArrayIfNeeded();
+
+        System.arraycopy(data, index, data, index + 1, currentSize - index);
         data[index] = element;
+        currentSize++;
     }
 
     @Override
@@ -60,16 +68,14 @@ public class MyList implements OwnList {
         if (index < 0 || index >= currentSize) {
             throw new RuntimeException("Index out of bounds");
         }
-        for (int i = index; i < currentSize - 1; i++) {
-            data[i] = data[i + 1];
-        }
+        System.arraycopy(data, index + 1, data, index, currentSize - index);
         currentSize--;
     }
 
     @Override
     public String toString() {
         StringBuilder elements = new StringBuilder();
-        for(int i = 0; i < currentSize; i++) {
+        for (int i = 0; i < currentSize; i++) {
             elements.append(data[i].toString()).append("\n");
         }
         return elements.toString();
