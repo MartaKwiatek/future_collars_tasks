@@ -13,6 +13,14 @@ public class MyDoublyLinkedList<T> {
 
     private Node head, tail = null;
 
+    private void changeHead() {
+        head.prev = null;
+    }
+
+    private void changeTail() {
+        tail.next = null;
+    }
+
     public boolean isEmpty() {
         return head == null;
     }
@@ -22,13 +30,13 @@ public class MyDoublyLinkedList<T> {
 
         if (isEmpty()) {
             head = tail = newNode;
-            head.prev = null;
-            tail.next = null;
+            changeHead();
+            changeTail();
         } else {
             tail.next = newNode;
             newNode.prev = tail;
             tail = newNode;
-            tail.next = null;
+            changeTail();
         }
     }
 
@@ -52,7 +60,7 @@ public class MyDoublyLinkedList<T> {
         if (index == 0) {
             if (size() > 1) {
                 head = toRemove.next;
-                head.prev = null;
+                changeHead();
             } else {
                 head = tail = null;
             }
@@ -71,7 +79,7 @@ public class MyDoublyLinkedList<T> {
             head.prev = newNode;
             newNode.next = head;
             head = newNode;
-            head.prev = null;
+            changeHead();
         } else {
             Node nextNode = find(index);
             Node prevNode = nextNode.prev;
