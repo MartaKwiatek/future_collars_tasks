@@ -12,6 +12,7 @@ public class MyMap implements OwnMap {
         } else if (key.compareTo(current.getKey()) > 0) {
             current.right = putRecursively(current.right, key, value);
         } else {
+            current.setValue(value);
             return current;
         }
         return current;

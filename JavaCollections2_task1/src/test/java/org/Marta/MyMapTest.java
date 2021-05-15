@@ -1,6 +1,5 @@
 package org.Marta;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -20,6 +19,21 @@ class MyMapTest {
         myMap.put("13", "text7");
         myMap.put("17", "text8");
         myMap.put("15", "text9");
+    }
+
+    @Test
+    @DisplayName("should verify overwriting a value on an existing key")
+    void shouldVerifyOverwritingValue() {
+        //given
+        String beforeOverwrite = myMap.get("2");
+        Assertions.assertEquals("text3", beforeOverwrite);
+        myMap.put("2", "overwrite");
+
+        //when
+        String actual = myMap.get("2");
+
+        //then
+        Assertions.assertEquals("overwrite", actual);
     }
 
     @Test
