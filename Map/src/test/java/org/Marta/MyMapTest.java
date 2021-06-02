@@ -21,52 +21,16 @@ class MyMapTest {
     }
 
     @Test
-    void shouldVerifyAddingNewEntries() {
+    void shouldVerifyIfMapIsNotEmpty() {
         //given
         myMap.put("1", "Marta");
         myMap.put("2", "Jaro");
 
         //when
-        int size = myMap.getSize();
+        boolean isEmpty = myMap.isEmpty();
 
         //then
-        Assertions.assertEquals(2, size);
-    }
-
-    @Test
-    void shouldVerifyCreatingMapWithDefaultSize() {
-        //given, when
-        int actualSize = myMap.getTableLength();
-
-        //then
-        Assertions.assertEquals(4, actualSize);
-    }
-
-    @Test
-    void shouldVerifyCreatingMapWithDefaultThreshold() {
-        //given, when
-        int actualThreshold = myMap.getThreshold();
-
-        //then
-        Assertions.assertEquals(3, actualThreshold);
-    }
-
-    @Test
-    void shouldVerifyResizingMapWhenThresholdIsReached() {
-        //given
-        myMap.put("1", "A");
-        myMap.put("2", "B");
-        myMap.put("3", "C");
-        myMap.put("4", "D");
-        myMap.put("5", "E");
-
-        //when
-        int size = myMap.getSize();
-        int tableLength = myMap.getTableLength();
-
-        //then
-        Assertions.assertEquals(5, size);
-        Assertions.assertEquals(8, tableLength);
+        Assertions.assertFalse(isEmpty);
     }
 
     @Test
@@ -137,21 +101,6 @@ class MyMapTest {
 
         //then
         Assertions.assertEquals("Marta", removedValue);
-    }
-
-    @Test
-    void shouldVerifyRemovingValue() {
-        //given
-        myMap.put("1", "A");
-        myMap.put("2", "B");
-        myMap.put("3", "C");
-        myMap.remove("1");
-
-        //when
-        int size = myMap.getSize();
-
-        //then
-        Assertions.assertEquals(2, size);
     }
 
     @Test

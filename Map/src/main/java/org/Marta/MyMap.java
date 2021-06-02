@@ -157,17 +157,4 @@ public class MyMap<K, V> implements OwnMap<K, V> {
     public boolean isEmpty() {
         return size == 0;
     }
-
-    //for tests
-    public int getSize() {
-        return size;
-    }
-
-    public int getThreshold() {
-        return threshold;
-    }
-
-    public int getTableLength() {
-        return table.length;
-    }
 }
